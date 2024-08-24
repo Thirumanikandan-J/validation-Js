@@ -1,0 +1,54 @@
+<html>
+    <head>
+        <title>Validation Form</title>
+        <style>
+            .error{
+                color: red;
+                display: none;
+            }
+        </style>
+    </head>
+    <body>
+        <h2>Simple Validation Form</h2>
+        <form id="myForm"onsumit="return Validation">
+            <label for="name">Name</label>
+            <input type="text"id="name"><br><br>
+            <span id="nameError"class="error">Please enter your name</span><br><br>
+            <label for="email">Email</label>
+            <input type="text"id="email"name="email"><br><br>
+            <span id="emailError"class="error">Please enter a valid emai;</span><br><br>
+            <label for="password">Password</label>
+            <input type="password"id="password"name="password"><br><br>
+            <span id="passwordError"class="error">Please enter your password</span><br><br>
+            <input type="submit"value="submit">
+        </form>
+        <script>
+        function validation() {
+            let isValid=true;
+        
+        document.getElementById("nameError").styledisplay="none"; 
+        document.getElementById("emailError").styledisplay="none";
+        document.getElementById("passwordError").styledisplay="none";
+
+        let name = document.getElementById("name").value.trim();
+        let email = document.getElementById("email").value.trim();
+        let password = document.getElementById("password").value.trim();
+        
+        if(name=== ""){
+            document.getElementById("namelError").styledisplay="block";
+            isValid="false";
+        }
+        if(email=== ""|| !email.includes('@')|| !email.includes('.')){
+            document.getElementById("emailError").styledisplay="block";
+            isValid="false";
+        }
+        if(password=== ""){
+            document.getElementById("emailError").styledisplay="block";
+            isValid="false";
+        }
+        return isValid;
+    }
+    </script>
+
+    </body>
+</html>
